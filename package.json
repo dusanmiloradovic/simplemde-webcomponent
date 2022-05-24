@@ -1,0 +1,15 @@
+{
+  "name": "simplemde-webcomponent",
+  "version": "1.0.0",
+  "description": "SimpleMDE editor wrapped in a web component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://maximoplus.com/ADv7aSqVvJMjyw8Y7UwL8EXDSbY2MF345yU6abmGe6UaHnppYf/simplemde-webcomponent.git"
+  },
+  "author": "Dusan Miloradovic",
+  "license": "ISC"
+}
