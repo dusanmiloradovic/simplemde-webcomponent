@@ -2,9 +2,11 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ref, createRef, Ref } from "lit/directives/ref.js";
 import SimpleMDE from "easymde";
+import easyMDEStyle from "easymde/dist/easymde.min.css";
+import faStyle from "@fortawesome/fontawesome-free/css/all.css";
 
-@customElement("md-editornew")
-export class MDEditorNew extends LitElement {
+@customElement("md-editor")
+export class MDEditor extends LitElement {
   @property()
   initialValue: string = "";
 
@@ -19,15 +21,11 @@ export class MDEditorNew extends LitElement {
   }
 
   render() {
-    const faURL: string = chrome.runtime.getURL("vendorcss/all.min.css");
-    const easyMDEURL: string = chrome.runtime.getURL(
-      "vendorcss/easymde.min.css"
-    );
-    console.log(`FAURL ${faURL}`);
-    console.log(`EasyMDEUrl ${easyMDEURL}`);
     return html`<div>
-      <link rel="stylesheet" href="${faURL}" />
-      <link rel="stylesheet" href="${easyMDEURL}" />
+      <style>
+        ${easyMDEStyle}
+        ${faStyle}
+      </style>
       <textarea ${ref(this.inputRef)}></textarea>
     </div>`;
   }
@@ -43,6 +41,6 @@ export class MDEditorNew extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "md-editornew": MDEditorNew;
+    "md-editor": MDEditor;
   }
 }
