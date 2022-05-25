@@ -5,6 +5,7 @@ import SimpleMDE from "easymde";
 import easyMDEStyle from "easymde/dist/easymde.min.css";
 import faStyle from "@fortawesome/fontawesome-free/css/fontawesome.css";
 import fontFace from "@fortawesome/fontawesome-free/css/regular.css";
+import fontFaceSolid from "@fortawesome/fontawesome-free/css/solid.css";
 @customElement("md-editor")
 export class MDEditor extends LitElement {
   @property()
@@ -23,9 +24,10 @@ export class MDEditor extends LitElement {
   render() {
     return html`<div>
       <style>
-        ${fontFace}
-                ${faStyle}
-                ${easyMDEStyle}
+                ${fontFace}
+        ${fontFaceSolid}
+                        ${faStyle}
+                        ${easyMDEStyle}
       </style>
       <textarea ${ref(this.inputRef)}></textarea>
     </div>`;
@@ -44,7 +46,7 @@ export class MDEditor extends LitElement {
 
   createRenderRoot(): Element | ShadowRoot {
     var el: Element = this;
-    el.innerHTML = `<div><style>${fontFace}</style><div></div></div>`;
+    el.innerHTML = `<div><style>${fontFace}${fontFaceSolid}</style><div></div></div>`;
     return this.firstElementChild!.children[1].attachShadow({ mode: "open" });
   }
 }
