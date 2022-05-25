@@ -2,10 +2,12 @@
   "name": "simplemde-webcomponent",
   "version": "1.0.0",
   "description": "SimpleMDE editor wrapped in a web component",
-  "main": "index.js",
+  "main": "dist/runtime/index.js",
+  "types": "dist/runtime/index.d.ts",
+  "files": "dist",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "build": "rollup -c && copyfiles -f node_modules/@fortawesome/fontawesome-free/webfonts/* dist/webfonts"
   },
   "repository": {
     "type": "git",
@@ -16,6 +18,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "copyfiles": "^2.4.1",
     "postcss": "^8.4.14",
     "postcss-inline-base64": "^7.2.2",
     "postcss-url": "^10.1.3",
