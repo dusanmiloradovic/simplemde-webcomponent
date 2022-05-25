@@ -3,8 +3,8 @@ import { customElement, property } from "lit/decorators.js";
 import { ref, createRef, Ref } from "lit/directives/ref.js";
 import SimpleMDE from "easymde";
 import easyMDEStyle from "easymde/dist/easymde.min.css";
-import faStyle from "@fortawesome/fontawesome-free/css/all.css";
-
+import faStyle from "@fortawesome/fontawesome-free/css/fontawesome.css";
+import fontFace from "@fortawesome/fontawesome-free/css/regular.css";
 @customElement("md-editor")
 export class MDEditor extends LitElement {
   @property()
@@ -23,8 +23,9 @@ export class MDEditor extends LitElement {
   render() {
     return html`<div>
       <style>
-        ${easyMDEStyle}
-        ${faStyle}
+        ${fontFace}
+                ${faStyle}
+                ${easyMDEStyle}
       </style>
       <textarea ${ref(this.inputRef)}></textarea>
     </div>`;
@@ -34,7 +35,10 @@ export class MDEditor extends LitElement {
     super.firstUpdated(_changedProperties);
     const input = this.inputRef.value!;
 
-    this.easyMDE = new SimpleMDE({ element: input });
+    this.easyMDE = new SimpleMDE({
+      element: input,
+      autoDownloadFontAwesome: false,
+    });
     this.easyMDE.value(this.initialValue);
   }
 }
