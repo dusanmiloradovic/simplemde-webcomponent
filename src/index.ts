@@ -41,6 +41,12 @@ export class MDEditor extends LitElement {
     });
     this.easyMDE.value(this.initialValue);
   }
+
+  createRenderRoot(): Element | ShadowRoot {
+    var el: Element = this;
+    el.innerHTML = `<div><style>${fontFace}</style><div></div></div>`;
+    return this.firstElementChild!.children[1].attachShadow({ mode: "open" });
+  }
 }
 
 declare global {

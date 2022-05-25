@@ -7,15 +7,10 @@ import postcss from "rollup-plugin-postcss";
 export default {
   input: "src/index.ts",
   output: {
-    file: "dist/runtime/index.js",
+    file: "dist/index.js",
     format: "esm",
     name: "easymde-webcomponents",
     sourcemap: true,
   },
-  plugins: [
-    resolve({browser:true}),
-    commonjs(),
-    typescript(),
-    css(),
-  ],
+  plugins: [resolve({ browser: true }), commonjs(), typescript(), css()],
 };
