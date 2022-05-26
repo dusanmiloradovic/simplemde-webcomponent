@@ -24,10 +24,10 @@ export class MDEditor extends LitElement {
   render() {
     return html`<div>
       <style>
-                ${fontFace}
+        ${fontFace}
         ${fontFaceSolid}
-                        ${faStyle}
-                        ${easyMDEStyle}
+        ${faStyle}
+        ${easyMDEStyle}
       </style>
       <textarea ${ref(this.inputRef)}></textarea>
     </div>`;
