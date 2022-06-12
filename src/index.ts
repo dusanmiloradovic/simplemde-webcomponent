@@ -6,10 +6,11 @@ import easyMDEStyle from "easymde/dist/easymde.min.css";
 import faStyle from "@fortawesome/fontawesome-free/css/fontawesome.css";
 import fontFace from "@fortawesome/fontawesome-free/css/regular.css";
 import fontFaceSolid from "@fortawesome/fontawesome-free/css/solid.css";
+
 @customElement("md-editor")
 export class MDEditor extends LitElement {
   @property()
-  initialValue: string = "";
+  initval: string = "";
 
   @property()
   value: string = "";
@@ -21,6 +22,13 @@ export class MDEditor extends LitElement {
     return this.easyMDE!.value();
   }
 
+  setValue(value: string) {
+    if (!this.easyMDE) {
+      return;
+    }
+    this.easyMDE.value(value);
+  }
+    
   render() {
     return html`<div>
       <style>
@@ -41,7 +49,7 @@ export class MDEditor extends LitElement {
       element: input,
       autoDownloadFontAwesome: false,
     });
-    this.easyMDE.value(this.initialValue);
+    this.easyMDE.value(this.initval);
   }
 
   createRenderRoot(): Element | ShadowRoot {

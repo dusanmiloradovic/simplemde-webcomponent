@@ -1,6 +1,6 @@
 {
   "name": "simplemde-webcomponent",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "SimpleMDE editor wrapped in a web component",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
